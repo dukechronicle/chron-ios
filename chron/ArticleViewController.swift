@@ -22,12 +22,19 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
             self.titleTextView.text = article!.title
             self.bodyWebView.loadHTMLString(article!.body, baseURL: nil)
         }
-        titleTextView.sizeToFit()
-        titleTextView.layoutIfNeeded()
         self.bodyWebView.scrollView.scrollEnabled = false
     }
 
     override func viewDidAppear(animated: Bool) {
+        println("\(titleTextView.frame.size.width) \(titleTextView.frame.size.height)")
+        var titleFrame = titleTextView.frame
+        titleFrame.size.height = 1
+        titleTextView.frame = titleFrame
+        let fittingSize = titleTextView.sizeThatFits(CGSizeMake(titleFrame.size.width, 0))
+        titleFrame.size = fittingSize
+        titleTextView.frame = titleFrame
+        println("\(titleTextView.frame.size.width) \(titleTextView.frame.size.height)")
+        
         // Adjust scroll frame size, this happens after WebView's size has changed
         let scrollViewHeight = bodyWebView.frame.height + titleTextView.frame.height
         var scrollFrame = scrollView.frame
