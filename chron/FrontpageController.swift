@@ -2,7 +2,7 @@ import UIKit
 
 class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChronAPIDelegate {
 
-    var items: Array<String>?
+    var items: Array<Article>?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -20,10 +20,10 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func didReceiveChronAPIResults(results: Array<Article>) {
-        self.items = results.map({(article: Article) -> String in
-            return article.title
-        })
-        self.tableView.reloadData()
+        self.items = results
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        });
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,12 +36,14 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = self.items?[indexPath.row]
+        cell.textLabel?.text = self.items?[indexPath.row].title
         return cell
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        println("You selected \(indexPath.row)")
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let articleView = self.storyboard?.instantiateViewControllerWithIdentifier("articleShow") as ArticleViewController
+        articleView.article = self.items?[indexPath.row]
+        self.navigationController?.pushViewController(articleView, animated: true)
     }
     
 }

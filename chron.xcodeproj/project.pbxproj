@@ -15,6 +15,7 @@
 		4C34068D1A44E68900CB0AC6 /* chronTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34068C1A44E68900CB0AC6 /* chronTests.swift */; };
 		4CD1614D1A46C5D200D60836 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1614C1A46C5D200D60836 /* SwiftyJSON.swift */; };
 		4CD1614F1A46C60B00D60836 /* ChronAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1614E1A46C60B00D60836 /* ChronAPI.swift */; };
+		4CD161511A47E3CB00D60836 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD161501A47E3CB00D60836 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		4C34068C1A44E68900CB0AC6 /* chronTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chronTests.swift; sourceTree = "<group>"; };
 		4CD1614C1A46C5D200D60836 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		4CD1614E1A46C60B00D60836 /* ChronAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChronAPI.swift; sourceTree = "<group>"; };
+		4CD161501A47E3CB00D60836 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				4C3406761A44E68900CB0AC6 /* AppDelegate.swift */,
 				4C3406781A44E68900CB0AC6 /* FrontpageController.swift */,
 				4C34067A1A44E68900CB0AC6 /* Main.storyboard */,
+				4CD161501A47E3CB00D60836 /* ArticleViewController.swift */,
 				4C34067D1A44E68900CB0AC6 /* Images.xcassets */,
 				4C34067F1A44E68900CB0AC6 /* LaunchScreen.xib */,
 				4C3406741A44E68900CB0AC6 /* Supporting Files */,
@@ -220,6 +223,7 @@
 			files = (
 				4CD1614D1A46C5D200D60836 /* SwiftyJSON.swift in Sources */,
 				4CD1614F1A46C60B00D60836 /* ChronAPI.swift in Sources */,
+				4CD161511A47E3CB00D60836 /* ArticleViewController.swift in Sources */,
 				4C3406791A44E68900CB0AC6 /* FrontpageController.swift in Sources */,
 				4C3406771A44E68900CB0AC6 /* AppDelegate.swift in Sources */,
 			);
