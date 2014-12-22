@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jkL-pV-fqa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2Wy-dm-0aM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fB7-Ip-ozg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0ys-A1-5Oj">
@@ -73,15 +75,9 @@
                         <viewControllerLayoutGuide type="bottom" id="Woi-Hi-U7c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6VF-NO-dmB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bma-64-Kqf" userLabel="body text">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title lorem ipsum" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-15-6xv" userLabel="title text">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,54 +97,61 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbs-lL-6eT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Woi-Hi-U7c" firstAttribute="top" secondItem="Bma-64-Kqf" secondAttribute="bottom" constant="-127" id="F42-Su-fNr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Bma-64-Kqf" secondAttribute="trailing" id="K0q-3V-DhL"/>
                             <constraint firstAttribute="centerX" secondItem="Znw-15-6xv" secondAttribute="centerX" id="OAJ-wQ-mzq"/>
-                            <constraint firstItem="Bma-64-Kqf" firstAttribute="leading" secondItem="6VF-NO-dmB" secondAttribute="leadingMargin" id="Vcc-hq-5jD"/>
-                            <constraint firstItem="Bma-64-Kqf" firstAttribute="top" secondItem="Znw-15-6xv" secondAttribute="bottom" constant="3" id="Y8a-eM-4eU"/>
+                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="trailing" secondItem="6VF-NO-dmB" secondAttribute="trailingMargin" id="Pzi-Bd-KIS"/>
+                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="leading" secondItem="6VF-NO-dmB" secondAttribute="leadingMargin" id="Q57-vx-Fta"/>
+                            <constraint firstItem="Woi-Hi-U7c" firstAttribute="top" secondItem="Rbs-lL-6eT" secondAttribute="bottom" constant="20" id="YUW-vN-yJx"/>
+                            <constraint firstItem="Woi-Hi-U7c" firstAttribute="top" secondItem="Rbs-lL-6eT" secondAttribute="bottom" constant="20" id="YnB-PH-fXU"/>
                             <constraint firstItem="Znw-15-6xv" firstAttribute="trailing" secondItem="6VF-NO-dmB" secondAttribute="trailingMargin" id="lM7-dY-vst"/>
                             <constraint firstItem="Znw-15-6xv" firstAttribute="top" secondItem="Z8U-Ec-m8d" secondAttribute="bottom" constant="10" id="qGV-Qa-LKt"/>
+                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="top" secondItem="Znw-15-6xv" secondAttribute="bottom" constant="8" id="s37-Qk-44V"/>
                             <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="6VF-NO-dmB" secondAttribute="leadingMargin" id="scL-T1-Iem"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Bma-64-Kqf"/>
                                 <exclude reference="Znw-15-6xv"/>
+                                <exclude reference="Rbs-lL-6eT"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="OAJ-wQ-mzq"/>
                                 <exclude reference="lM7-dY-vst"/>
                                 <exclude reference="qGV-Qa-LKt"/>
                                 <exclude reference="scL-T1-Iem"/>
-                                <exclude reference="K0q-3V-DhL"/>
-                                <exclude reference="Vcc-hq-5jD"/>
-                                <exclude reference="Y8a-eM-4eU"/>
-                                <exclude reference="F42-Su-fNr"/>
+                                <exclude reference="Pzi-Bd-KIS"/>
+                                <exclude reference="Q57-vx-Fta"/>
+                                <exclude reference="s37-Qk-44V"/>
+                                <exclude reference="YUW-vN-yJx"/>
+                                <exclude reference="YnB-PH-fXU"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Bma-64-Kqf"/>
                                 <include reference="Znw-15-6xv"/>
+                                <include reference="Rbs-lL-6eT"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="OAJ-wQ-mzq"/>
                                 <include reference="lM7-dY-vst"/>
                                 <include reference="qGV-Qa-LKt"/>
                                 <include reference="scL-T1-Iem"/>
-                                <include reference="K0q-3V-DhL"/>
-                                <include reference="Vcc-hq-5jD"/>
-                                <include reference="Y8a-eM-4eU"/>
-                                <include reference="F42-Su-fNr"/>
+                                <include reference="Pzi-Bd-KIS"/>
+                                <include reference="Q57-vx-Fta"/>
+                                <include reference="s37-Qk-44V"/>
+                                <include reference="YUW-vN-yJx"/>
+                                <include reference="YnB-PH-fXU"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Article" id="e7j-cl-IMR"/>
                     <connections>
-                        <outlet property="bodyTextView" destination="Bma-64-Kqf" id="79o-Hi-T2j"/>
+                        <outlet property="bodyWebView" destination="Rbs-lL-6eT" id="6xg-Ib-KEL"/>
                         <outlet property="titleTextView" destination="Znw-15-6xv" id="GQk-Bo-h6K"/>
                     </connections>
                 </viewController>

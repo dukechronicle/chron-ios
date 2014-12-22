@@ -10,15 +10,15 @@ import UIKit
 
 class ArticleViewController: UIViewController {
 
-    @IBOutlet var bodyTextView: UITextView!
     @IBOutlet var titleTextView: UITextView!
     var article: Article!
     
+    @IBOutlet weak var bodyWebView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
         if article != nil {
             self.titleTextView.text = article!.title
-            self.bodyTextView.text = article!.body
+            self.bodyWebView.loadHTMLString(article!.body, baseURL: nil)
         }
         // Do any additional setup after loading the view.
     }
