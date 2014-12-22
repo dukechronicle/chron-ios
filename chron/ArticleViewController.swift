@@ -8,26 +8,49 @@
 
 import UIKit
 
-class ArticleViewController: UIViewController {
+class ArticleViewController: UIViewController, UIWebViewDelegate {
 
-    @IBOutlet var titleTextView: UITextView!
     var article: Article!
-    
+
+    @IBOutlet weak var titleTextView: UITextView!
     @IBOutlet weak var bodyWebView: UIWebView!
+    @IBOutlet weak var scrollView: UIScrollView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if article != nil {
             self.titleTextView.text = article!.title
             self.bodyWebView.loadHTMLString(article!.body, baseURL: nil)
         }
-        // Do any additional setup after loading the view.
+        titleTextView.sizeToFit()
+        titleTextView.layoutIfNeeded()
+        self.bodyWebView.scrollView.scrollEnabled = false
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        // Adjust scroll frame size, this happens after WebView's size has changed
+        let scrollViewHeight = bodyWebView.frame.height + titleTextView.frame.height
+        var scrollFrame = scrollView.frame
+        scrollFrame.size.height = scrollViewHeight
+        scrollView.frame = scrollFrame
+        scrollView.contentSize = CGSize(width: scrollFrame.width, height:scrollFrame.height)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    func webViewDidFinishLoad(webView: UIWebView) {
+        // Adjust WebView's size to match content
+        var frame = bodyWebView.frame
+        frame.size.height = 1
+        bodyWebView.frame = frame
+        let fittingSize = bodyWebView.sizeThatFits(CGSizeZero)
+        frame.size = fittingSize
+        bodyWebView.frame = frame
+    }
+
 
     /*
     // MARK: - Navigation
