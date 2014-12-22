@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4C3406771A44E68900CB0AC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3406761A44E68900CB0AC6 /* AppDelegate.swift */; };
-		4C3406791A44E68900CB0AC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3406781A44E68900CB0AC6 /* ViewController.swift */; };
+		4C3406791A44E68900CB0AC6 /* FrontpageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3406781A44E68900CB0AC6 /* FrontpageController.swift */; };
 		4C34067C1A44E68900CB0AC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C34067A1A44E68900CB0AC6 /* Main.storyboard */; };
 		4C34067E1A44E68900CB0AC6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C34067D1A44E68900CB0AC6 /* Images.xcassets */; };
 		4C3406811A44E68900CB0AC6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C34067F1A44E68900CB0AC6 /* LaunchScreen.xib */; };
 		4C34068D1A44E68900CB0AC6 /* chronTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34068C1A44E68900CB0AC6 /* chronTests.swift */; };
+		4CD1614D1A46C5D200D60836 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1614C1A46C5D200D60836 /* SwiftyJSON.swift */; };
+		4CD1614F1A46C60B00D60836 /* ChronAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1614E1A46C60B00D60836 /* ChronAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +31,15 @@
 		4C3406711A44E68900CB0AC6 /* chron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chron.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3406751A44E68900CB0AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3406761A44E68900CB0AC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C3406781A44E68900CB0AC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C3406781A44E68900CB0AC6 /* FrontpageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontpageController.swift; sourceTree = "<group>"; };
 		4C34067B1A44E68900CB0AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C34067D1A44E68900CB0AC6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4C3406801A44E68900CB0AC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4C3406861A44E68900CB0AC6 /* chronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chronTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C34068B1A44E68900CB0AC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C34068C1A44E68900CB0AC6 /* chronTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chronTests.swift; sourceTree = "<group>"; };
+		4CD1614C1A46C5D200D60836 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		4CD1614E1A46C60B00D60836 /* ChronAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChronAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +81,14 @@
 		4C3406731A44E68900CB0AC6 /* chron */ = {
 			isa = PBXGroup;
 			children = (
+				4CD1614C1A46C5D200D60836 /* SwiftyJSON.swift */,
 				4C3406761A44E68900CB0AC6 /* AppDelegate.swift */,
-				4C3406781A44E68900CB0AC6 /* ViewController.swift */,
+				4C3406781A44E68900CB0AC6 /* FrontpageController.swift */,
 				4C34067A1A44E68900CB0AC6 /* Main.storyboard */,
 				4C34067D1A44E68900CB0AC6 /* Images.xcassets */,
 				4C34067F1A44E68900CB0AC6 /* LaunchScreen.xib */,
 				4C3406741A44E68900CB0AC6 /* Supporting Files */,
+				4CD1614E1A46C60B00D60836 /* ChronAPI.swift */,
 			);
 			path = chron;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C3406791A44E68900CB0AC6 /* ViewController.swift in Sources */,
+				4CD1614D1A46C5D200D60836 /* SwiftyJSON.swift in Sources */,
+				4CD1614F1A46C60B00D60836 /* ChronAPI.swift in Sources */,
+				4C3406791A44E68900CB0AC6 /* FrontpageController.swift in Sources */,
 				4C3406771A44E68900CB0AC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +413,7 @@
 				4C3406921A44E68900CB0AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C3406931A44E68900CB0AC6 /* Build configuration list for PBXNativeTarget "chronTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				4C3406951A44E68900CB0AC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
