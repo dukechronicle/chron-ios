@@ -19,8 +19,10 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    func didReceiveChronAPIResults(results: Array<String>) {
-        self.items = results
+    func didReceiveChronAPIResults(results: Array<Article>) {
+        self.items = results.map({(article: Article) -> String in
+            return article.title
+        })
         self.tableView.reloadData()
     }
     
