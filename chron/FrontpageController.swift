@@ -41,6 +41,7 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let articleView = self.storyboard?.instantiateViewControllerWithIdentifier("articleShow") as ArticleViewController
         articleView.article = self.items?[indexPath.row]
         self.navigationController?.pushViewController(articleView, animated: true)

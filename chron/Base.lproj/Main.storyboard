@@ -77,59 +77,112 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMw-rL-fv2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uMw-rL-fv2">
                                 <rect key="frame" x="-4" y="54" width="408" height="546"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-rx-sWw">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-rx-sWw">
                                         <rect key="frame" x="0.0" y="-20" width="408" height="546"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Title lorem ipsum" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-15-6xv" userLabel="title text">
+                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="Title lorem ipsum" translatesAutoresizingMaskIntoConstraints="NO" id="Znw-15-6xv" userLabel="title text">
                                                 <rect key="frame" x="20" y="20" width="368" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="43" id="EYr-in-I2z"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="EYr-in-I2z"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="EYr-in-I2z"/>
+                                                    </mask>
+                                                </variation>
                                             </textView>
-                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbs-lL-6eT">
+                                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ash Ketchum | December 22, 2014" translatesAutoresizingMaskIntoConstraints="NO" id="fZ6-29-MIW" userLabel="info text">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="4xr-QS-29k"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="4xr-QS-29k"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="4xr-QS-29k"/>
+                                                    </mask>
+                                                </variation>
+                                            </textView>
+                                            <webView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rbs-lL-6eT">
                                                 <rect key="frame" x="20" y="88" width="368" height="438"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="403" id="WK6-Tc-1B2"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="WK6-Tc-1B2"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="WK6-Tc-1B2"/>
+                                                    </mask>
+                                                </variation>
                                                 <connections>
                                                     <outlet property="delegate" destination="ltb-Kq-JGP" id="CQa-kz-mGJ"/>
                                                 </connections>
                                             </webView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="trailing" secondItem="Znw-15-6xv" secondAttribute="trailing" id="A0o-SY-DBM"/>
-                                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="top" secondItem="Znw-15-6xv" secondAttribute="bottom" constant="8" id="AmO-ii-LpJ"/>
-                                            <constraint firstItem="Znw-15-6xv" firstAttribute="centerX" secondItem="WkB-rx-sWw" secondAttribute="centerX" id="EeR-wk-vze"/>
-                                            <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="Rbs-lL-6eT" secondAttribute="leading" id="Hgw-Jc-hw4"/>
-                                            <constraint firstAttribute="trailing" secondItem="Znw-15-6xv" secondAttribute="trailing" constant="20" id="fOv-lW-vJd"/>
-                                            <constraint firstAttribute="bottom" secondItem="Rbs-lL-6eT" secondAttribute="bottom" constant="20" id="mCc-UT-KnY"/>
-                                            <constraint firstItem="Znw-15-6xv" firstAttribute="top" secondItem="WkB-rx-sWw" secondAttribute="top" constant="20" id="o0S-dn-dG0"/>
-                                            <constraint firstAttribute="height" constant="546" id="oyB-dk-8dq"/>
-                                            <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="WkB-rx-sWw" secondAttribute="leading" constant="20" id="yhu-zb-Aba"/>
+                                            <constraint firstItem="fZ6-29-MIW" firstAttribute="top" secondItem="Znw-15-6xv" secondAttribute="bottom" id="RLl-s5-8dc"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="trailing" secondItem="fZ6-29-MIW" secondAttribute="trailing" id="WL4-z4-5s3"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="Rbs-lL-6eT" secondAttribute="leading" id="br6-A0-Agq"/>
+                                            <constraint firstAttribute="bottom" secondItem="Rbs-lL-6eT" secondAttribute="bottom" constant="34" id="eFg-tM-pm7"/>
+                                            <constraint firstItem="Rbs-lL-6eT" firstAttribute="top" secondItem="fZ6-29-MIW" secondAttribute="bottom" id="f0n-GN-Axe"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="WkB-rx-sWw" secondAttribute="leading" constant="20" id="fPb-sl-dHd"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="centerX" secondItem="WkB-rx-sWw" secondAttribute="centerX" id="gUw-Qy-3Bn"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rbs-lL-6eT" secondAttribute="trailing" constant="28" id="o8Z-7K-aLE"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="top" secondItem="WkB-rx-sWw" secondAttribute="top" constant="20" id="oqt-9k-Ucx"/>
+                                            <constraint firstItem="Znw-15-6xv" firstAttribute="leading" secondItem="fZ6-29-MIW" secondAttribute="leading" id="wKF-PE-S1O"/>
                                         </constraints>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="fZ6-29-MIW"/>
+                                            </mask>
                                             <mask key="constraints">
-                                                <exclude reference="oyB-dk-8dq"/>
-                                                <exclude reference="EeR-wk-vze"/>
-                                                <exclude reference="Hgw-Jc-hw4"/>
-                                                <exclude reference="fOv-lW-vJd"/>
-                                                <exclude reference="o0S-dn-dG0"/>
-                                                <exclude reference="yhu-zb-Aba"/>
-                                                <exclude reference="A0o-SY-DBM"/>
-                                                <exclude reference="AmO-ii-LpJ"/>
-                                                <exclude reference="mCc-UT-KnY"/>
+                                                <exclude reference="WL4-z4-5s3"/>
+                                                <exclude reference="br6-A0-Agq"/>
+                                                <exclude reference="fPb-sl-dHd"/>
+                                                <exclude reference="gUw-Qy-3Bn"/>
+                                                <exclude reference="oqt-9k-Ucx"/>
+                                                <exclude reference="wKF-PE-S1O"/>
+                                                <exclude reference="RLl-s5-8dc"/>
+                                                <exclude reference="eFg-tM-pm7"/>
+                                                <exclude reference="f0n-GN-Axe"/>
+                                                <exclude reference="o8Z-7K-aLE"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="fZ6-29-MIW"/>
+                                            </mask>
                                             <mask key="constraints">
-                                                <include reference="oyB-dk-8dq"/>
-                                                <include reference="EeR-wk-vze"/>
-                                                <include reference="Hgw-Jc-hw4"/>
-                                                <include reference="fOv-lW-vJd"/>
-                                                <include reference="o0S-dn-dG0"/>
-                                                <include reference="yhu-zb-Aba"/>
-                                                <include reference="A0o-SY-DBM"/>
-                                                <include reference="AmO-ii-LpJ"/>
-                                                <include reference="mCc-UT-KnY"/>
+                                                <include reference="WL4-z4-5s3"/>
+                                                <include reference="br6-A0-Agq"/>
+                                                <include reference="fPb-sl-dHd"/>
+                                                <include reference="gUw-Qy-3Bn"/>
+                                                <include reference="oqt-9k-Ucx"/>
+                                                <include reference="wKF-PE-S1O"/>
+                                                <include reference="RLl-s5-8dc"/>
+                                                <include reference="eFg-tM-pm7"/>
+                                                <include reference="f0n-GN-Axe"/>
+                                                <include reference="o8Z-7K-aLE"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -137,7 +190,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="WkB-rx-sWw" secondAttribute="trailing" id="9fW-45-etc"/>
                                     <constraint firstItem="WkB-rx-sWw" firstAttribute="leading" secondItem="uMw-rL-fv2" secondAttribute="leading" id="UKi-SI-E12"/>
-                                    <constraint firstAttribute="bottom" secondItem="WkB-rx-sWw" secondAttribute="bottom" id="YpT-F6-q8B"/>
+                                    <constraint firstAttribute="bottom" secondItem="WkB-rx-sWw" secondAttribute="bottom" id="YpT-F6-q8B">
+                                        <variation key="widthClass=compact" constant="-20"/>
+                                    </constraint>
                                     <constraint firstItem="WkB-rx-sWw" firstAttribute="top" secondItem="uMw-rL-fv2" secondAttribute="top" id="upB-Ca-boW"/>
                                     <constraint firstItem="WkB-rx-sWw" firstAttribute="centerX" secondItem="uMw-rL-fv2" secondAttribute="centerX" id="vFa-QJ-cjb"/>
                                 </constraints>
@@ -185,11 +240,14 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Article" id="e7j-cl-IMR"/>
+                    <navigationItem key="navigationItem" id="e7j-cl-IMR"/>
                     <connections>
                         <outlet property="bodyWebView" destination="Rbs-lL-6eT" id="6xg-Ib-KEL"/>
+                        <outlet property="infoTextView" destination="fZ6-29-MIW" id="qJz-Fq-jbE"/>
                         <outlet property="scrollView" destination="uMw-rL-fv2" id="vPa-q3-Ztg"/>
+                        <outlet property="titleHeightConstraint" destination="EYr-in-I2z" id="TmS-im-3Je"/>
                         <outlet property="titleTextView" destination="Znw-15-6xv" id="GQk-Bo-h6K"/>
+                        <outlet property="webViewHeightConstraint" destination="WK6-Tc-1B2" id="rO2-bF-yjn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9FB-dV-8Ef" userLabel="First Responder" sceneMemberID="firstResponder"/>

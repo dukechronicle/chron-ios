@@ -8,32 +8,56 @@
 
 import UIKit
 
+func convertDate(isoString: String) -> NSDate {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZ"
+    let posix = NSLocale(localeIdentifier: "en_US_POSIX")
+    formatter.locale = posix
+    if let res = formatter.dateFromString(isoString) {
+        return res
+    } else {
+        println("can't convert")
+        return NSDate()
+    }
+}
+
+func formatDate(date: NSDate) -> String {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "MMMM d, yyyy"
+    return formatter.stringFromDate(date)
+}
+
 class ArticleViewController: UIViewController, UIWebViewDelegate {
 
     var article: Article!
 
     @IBOutlet weak var titleTextView: UITextView!
+    @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet weak var bodyWebView: UIWebView!
     @IBOutlet weak var scrollView: UIScrollView!
 
+    @IBOutlet weak var titleHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var webViewHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if article != nil {
             self.titleTextView.text = article!.title
             self.bodyWebView.loadHTMLString(article!.body, baseURL: nil)
+            let publishedAt = convertDate(article.publishedAt)
+            self.infoTextView.text = "\(formatDate(publishedAt))"
         }
         self.bodyWebView.scrollView.scrollEnabled = false
     }
 
     override func viewDidAppear(animated: Bool) {
-        println("\(titleTextView.frame.size.width) \(titleTextView.frame.size.height)")
         var titleFrame = titleTextView.frame
         titleFrame.size.height = 1
         titleTextView.frame = titleFrame
         let fittingSize = titleTextView.sizeThatFits(CGSizeMake(titleFrame.size.width, 0))
         titleFrame.size = fittingSize
         titleTextView.frame = titleFrame
-        println("\(titleTextView.frame.size.width) \(titleTextView.frame.size.height)")
+        titleHeightConstraint.constant = titleFrame.size.height
         
         // Adjust scroll frame size, this happens after WebView's size has changed
         let scrollViewHeight = bodyWebView.frame.height + titleTextView.frame.height
@@ -41,6 +65,9 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         scrollFrame.size.height = scrollViewHeight
         scrollView.frame = scrollFrame
         scrollView.contentSize = CGSize(width: scrollFrame.width, height:scrollFrame.height)
+        
+        scrollView.layoutIfNeeded()
+        scrollView.updateConstraintsIfNeeded()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +83,7 @@ class ArticleViewController: UIViewController, UIWebViewDelegate {
         let fittingSize = bodyWebView.sizeThatFits(CGSizeZero)
         frame.size = fittingSize
         bodyWebView.frame = frame
+        webViewHeightConstraint.constant = frame.size.height
     }
 
 
