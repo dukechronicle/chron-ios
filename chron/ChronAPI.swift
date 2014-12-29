@@ -7,7 +7,7 @@ struct Article {
     var publishedAt: String
     var section: String
     var slug: String
-    var imageURL: String
+    var image: Image?
     static func jsonToArticle(articleJSON: Dictionary<String, JSON>) -> Article {
         return Article(
             title: articleJSON["title"]!.stringValue,
@@ -16,10 +16,28 @@ struct Article {
             publishedAt: articleJSON["published_at"]!.stringValue,
             section: "section",
             slug: articleJSON["slug"]!.stringValue,
-            imageURL: "imageurl"
+            image: Image.jsonToImage(articleJSON["image"])
         )
     }
 }
+
+struct Image {
+    var attribution: String
+    var caption: String
+    var thumbnailUrl: String
+    static func jsonToImage(imageJSON: JSON?) -> Image? {
+        if imageJSON == nil {
+            return nil
+        } else {
+            return Image(
+                attribution: imageJSON!["attribution"].stringValue,
+                caption: imageJSON!["caption"].stringValue,
+                thumbnailUrl: imageJSON!["thumbnail_url"].stringValue
+            )
+        }
+    }
+}
+
 protocol ChronAPIDelegate {
     func didReceiveChronAPIResults(results: Array<Article>)
 }

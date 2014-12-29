@@ -14,20 +14,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-wy-BHx">
-                        <rect key="frame" x="8" y="21" width="100" height="62"/>
+                        <rect key="frame" x="20" y="21" width="100" height="62"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="62" id="NtM-Th-c4N"/>
                             <constraint firstAttribute="width" constant="100" id="mRe-oF-mz8"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkn-1p-fFI" userLabel="Info label">
-                        <rect key="frame" x="116" y="32" width="184" height="13.5"/>
+                        <rect key="frame" x="128" y="32" width="172" height="13.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GR4-UW-4XC" userLabel="Title label">
-                        <rect key="frame" x="116" y="8" width="184" height="17"/>
+                        <rect key="frame" x="128" y="8" width="172" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                     <constraint firstItem="Xkn-1p-fFI" firstAttribute="trailing" secondItem="SoE-BA-RYE" secondAttribute="trailingMargin" constant="-12" id="UjS-IB-q0u"/>
                     <constraint firstItem="Xkn-1p-fFI" firstAttribute="leading" secondItem="ccZ-wy-BHx" secondAttribute="trailing" constant="8" id="aUY-dj-YWQ"/>
                     <constraint firstItem="GR4-UW-4XC" firstAttribute="leading" secondItem="ccZ-wy-BHx" secondAttribute="trailing" constant="8" id="cPd-aI-ELl"/>
-                    <constraint firstItem="ccZ-wy-BHx" firstAttribute="leading" secondItem="SoE-BA-RYE" secondAttribute="leadingMargin" id="gqb-cv-YVl"/>
+                    <constraint firstItem="ccZ-wy-BHx" firstAttribute="leading" secondItem="SoE-BA-RYE" secondAttribute="leadingMargin" constant="12" id="gqb-cv-YVl"/>
                     <constraint firstItem="GR4-UW-4XC" firstAttribute="top" secondItem="SoE-BA-RYE" secondAttribute="topMargin" id="v6i-ox-FBj"/>
                 </constraints>
             </tableViewCellContentView>

@@ -3,6 +3,7 @@ import UIKit
 class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChronAPIDelegate {
 
     var items: Array<Article>?
+    var images = Dictionary<Int, NSData>()
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -39,6 +40,22 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
         if cell == nil {
             let nib = NSBundle.mainBundle().loadNibNamed("ArticlePreviewTableCell", owner: self, options: nil)
             cell = nib[0] as? ArticlePreviewTableCell
+        }
+        if let image = self.images[indexPath.row] {
+        } else {
+            if let imageInfo = self.items?[indexPath.row].image {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+                    let imageUrl = NSURL(string: "https:\(imageInfo.thumbnailUrl)")
+                    let data = NSData(contentsOfURL : imageUrl!)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        if let loadedData = data {
+                            self.images.updateValue(loadedData, forKey: indexPath.row)
+                            cell!.thumbnail?.image = UIImage(data: loadedData)
+                            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                        }
+                    })
+                })
+            }
         }
         cell!.titleLabel?.text = self.items?[indexPath.row].title
         cell!.infoLabel?.text = self.items?[indexPath.row].teaser
