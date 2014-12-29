@@ -35,9 +35,14 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = self.items?[indexPath.row].title
-        return cell
+        var cell = self.tableView.dequeueReusableCellWithIdentifier("ArticlePreviewTableCell") as? ArticlePreviewTableCell
+        if cell == nil {
+            let nib = NSBundle.mainBundle().loadNibNamed("ArticlePreviewTableCell", owner: self, options: nil)
+            cell = nib[0] as? ArticlePreviewTableCell
+        }
+        cell!.titleLabel?.text = self.items?[indexPath.row].title
+        cell!.infoLabel?.text = self.items?[indexPath.row].teaser
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -45,6 +50,10 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
         let articleView = self.storyboard?.instantiateViewControllerWithIdentifier("articleShow") as ArticleViewController
         articleView.article = self.items?[indexPath.row]
         self.navigationController?.pushViewController(articleView, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
     }
     
 }
