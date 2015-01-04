@@ -1,4 +1,5 @@
 import UIKit
+import swiftz
 
 class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChronAPIDelegate {
 
@@ -28,11 +29,7 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (items != nil) {
-            return self.items!.count
-        } else {
-            return 0
-        }
+        return items?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -46,7 +43,7 @@ class FrontpageController: UIViewController, UITableViewDelegate, UITableViewDat
             if let imageInfo = self.items?[indexPath.row].image {
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
                     let imageUrl = NSURL(string: "https:\(imageInfo.thumbnailUrl)")
-                    let data = NSData(contentsOfURL : imageUrl!)
+                    let data = imageUrl >>- { NSData(contentsOfURL : $0) }
                     dispatch_async(dispatch_get_main_queue(), {
                         if let loadedData = data {
                             self.images.updateValue(loadedData, forKey: indexPath.row)
